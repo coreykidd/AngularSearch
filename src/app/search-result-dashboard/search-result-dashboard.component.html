@@ -1,0 +1,18 @@
+<div fxFlex fxLayout="column" fxLayoutGap="10px" style="height: 100vh">
+    <div fxLayout="row wrap" fxLayoutAlign="space-evenly stretch">
+      <div
+        *ngFor="let result of searchResults"
+        fxFlex="25"
+        fxFlex.md="33"
+        fxFlex.sm="50"
+        fxFlex.xs="100"
+        fxLayout="column"
+        style="padding: 5px;"
+      >
+        <mat-card style="width: 100%; height: 100%; box-sizing: border-box;">
+          <mat-card-title>{{result.title}}</mat-card-title>
+          <mat-card-content>{{result.text}}</mat-card-content>
+        </mat-card>
+    </div>
+  </div>
+</div>

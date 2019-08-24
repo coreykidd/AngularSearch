@@ -1,4 +1,6 @@
-import { SEARCHRESULTS } from './../../search-result-list';
+import { SearchResult } from './../../search-result';
+import { QueryService } from './../query.service';
+import { FAKERESULTS } from './../../fake-search-results';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,11 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchResultDashboardComponent implements OnInit {
 
-  searchResults = SEARCHRESULTS;
+  searchResults: SearchResult[];
 
-  constructor() { }
+  constructor(private queryService: QueryService) { }
 
   ngOnInit() {
+    this.getResults();
+  }
+
+  getResults(): void {
+    this.queryService.getResults()
+      .subscribe(searchResults => this.searchResults = searchResults);
   }
 
 }

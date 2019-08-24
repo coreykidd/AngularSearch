@@ -1,7 +1,7 @@
 import { MatModModule } from './mat-mod/mat-mod.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchResultComponent } from './search-result/search-result.component';
@@ -13,12 +13,13 @@ import { SearchResultDashboardComponent } from './search-result-dashboard/search
     AppComponent,
     SearchResultComponent,
     SearchResultCardComponent,
-    SearchResultDashboardComponent
+    SearchResultDashboardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatModModule
+    MatModModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

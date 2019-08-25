@@ -1,7 +1,6 @@
 <mat-form-field class="search-form">
-    <input matInput #searchBox placeholder="Search" type="text">
-  </mat-form-field>
-  <!-- <button button="submit" mat-raised-button color="primary" (click)="submitQuery(searchBox.value)">Search</button> -->
-  <button button="submit" mat-raised-button color="primary">Search</button>
-
-  <!-- <app-search-result-dashboard [query]=searchBox.value></app-search-result-dashboard> -->
+  <input matInput #searchBox placeholder="Search" type="text">
+</mat-form-field>
+<button class="form-button" button="submit" mat-raised-button color="primary" [routerLink]="[ '/query', searchBox.value ]">Search</button>
+&nbsp;
+<button class="form-button" button="reset" mat-raised-button color="primary" [routerLink]="[ '/' ]" (click)="searchBox.value=''">Clear</button>

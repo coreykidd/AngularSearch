@@ -1,7 +1,7 @@
 import { SearchResult } from './../../search-result';
 import { QueryService } from './../query.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-result-dashboard',
@@ -14,7 +14,10 @@ export class SearchResultDashboardComponent implements OnInit {
 
   constructor(
       private queryService: QueryService,
-      private route: ActivatedRoute    ) { }
+      private route: ActivatedRoute,
+      private router: Router) {
+        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+      }
 
   ngOnInit() {
     this.getQuery();

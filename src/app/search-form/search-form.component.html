@@ -1,5 +1,5 @@
 <mat-form-field class="search-form">
-  <input matInput #searchBox placeholder="Search" type="text">
+  <input matInput #searchBox placeholder="Search" (keyup.enter)="submitQuery(searchBox.value)" type="text">
 </mat-form-field>
 <button class="form-button" button="submit" mat-raised-button color="primary" [routerLink]="[ '/query', searchBox.value ]">Search</button>
 &nbsp;

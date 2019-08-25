@@ -11,7 +11,7 @@
       >
         <mat-card class="card-style">
           <mat-card-title>{{result.subject}}</mat-card-title>
-          <mat-card-content>{{result.body}}</mat-card-content>
+          <mat-card-content [innerHTML]="result.body"></mat-card-content>
         </mat-card>
     </div>
   </div>

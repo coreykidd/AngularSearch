@@ -1,6 +1,5 @@
 import { SearchResult } from './../../search-result';
 import { QueryService } from './../query.service';
-import { FAKERESULTS } from './../../fake-search-results';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -15,11 +14,10 @@ export class SearchResultDashboardComponent implements OnInit {
   constructor(private queryService: QueryService) { }
 
   ngOnInit() {
-    this.getResults();
   }
 
-  getResults(): void {
-    this.queryService.getResults()
+  getResults(query: string): void {
+    this.queryService.getResults(query)
       .subscribe(searchResults => this.searchResults = searchResults);
   }
 

@@ -1,3 +1,4 @@
+import { SearchFormComponent } from './search-form/search-form.component';
 import { MatModModule } from './mat-mod/mat-mod.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -14,6 +15,7 @@ import { SearchResultDashboardComponent } from './search-result-dashboard/search
     SearchResultComponent,
     SearchResultCardComponent,
     SearchResultDashboardComponent,
+    SearchFormComponent
   ],
   imports: [
     BrowserModule,

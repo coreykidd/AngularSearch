@@ -1,5 +1,4 @@
 import { SearchResult } from './../search-result';
-import { FAKERESULTS } from './../fake-search-results';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -8,10 +7,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class QueryService {
-  private searchUrl = 'http://localhost:51849/api/Search?index=emails&query=hotel';
+  private searchUrl = 'http://localhost:51849/api/Search?index=emails&query=';
 
-  getResults(): Observable<SearchResult[]> {
-    return this.http.get<SearchResult[]>(this.searchUrl);
+  getResults(query: string): Observable<SearchResult[]> {
+    const url = `${this.searchUrl}${query}`;
+    return this.http.get<SearchResult[]>(url);
   }
 
   constructor(

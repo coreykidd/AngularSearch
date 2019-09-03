@@ -1,15 +1,17 @@
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { OnInit } from '@angular/core';
+import { Sanitizer } from '@angular/core';
 
 export class SearchResult {
     subject: string;
     body: string;
     hexEntryId: string;
-    // safeUrl: SafeUrl;
-    safeUrl2: string;
+    safeUrl: SafeUrl;
+    // safeUrl2 = 'Hello world';
 
-    constructor() {
-        // this.safeUrl = this.sanitizer.bypassSecurityTrustHtml(this.hexEntryId);
-        this.safeUrl2 = 'https://www.youtube.com/embed/';
+    constructor(subject: string, body: string, hexEntryId: string, private sanitizer: DomSanitizer) {
+        this.subject = subject;
+        this.body = body;
+        this.hexEntryId = hexEntryId;
+        this.safeUrl = this.sanitizer.bypassSecurityTrustUrl(this.hexEntryId);
     }
 }
